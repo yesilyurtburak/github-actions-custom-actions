@@ -6,9 +6,10 @@ inputs:
     required: false # does user have to provide input value?
     default: 'true' # default value for 'caching' input.
 outputs:
-  used-cache: # custom name
+  used-cache: # custom name for return parameter
     description: 'Whether the cache was used.'
     value: ${{ steps.install.outputs.cache }} # context.id_name.outputs.key_name
+    # took the value from environment variable 'cache' which is defined in 'install' step.
 runs:
   using: 'composite'
   steps:
@@ -25,4 +26,5 @@ runs:
       run: |
         npm ci
         echo "cache=${{ inputs.caching }}" >> $GITHUB_OUTPUT
+      # add input parameter's value to environment variable like cache:value
       shell: bash
