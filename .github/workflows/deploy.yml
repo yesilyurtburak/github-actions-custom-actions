@@ -11,6 +11,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Load & cache dependencies
         uses: ./.github/actions/cached-deps # custom composite action (relative path to root folder)
+        with: # provide inputs for our custom action here.
+          caching: 'false'
       - name: Lint code
         run: npm run lint
   test:
