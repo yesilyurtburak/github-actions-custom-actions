@@ -23,7 +23,7 @@ function run() {
     // We should set the permission on AWS to upload files. AWS -> Security Credentials -> Access Keys
     // Since the "aws" command looks for an environment variable eg. AWS_ACCESS_KEY_ID. This environment ID must be set in the workflow (deploy.yml). Github -> Settings -> Secrets
 
-    const websiteUrl = `http://${{bucket}}.s3-website-${{bucketRegion}}.amazonaws.com`; // return value
+    const websiteUrl = `http://${bucket}.s3-website-${bucketRegion}.amazonaws.com`; // return value
     core.setOutput('website-url', websiteUrl) // its like "website-url=${{websiteUrl}}" >> GITHUB_OUTPUT
 
     core.notice('Hello from my custom JavaScript Action!');
