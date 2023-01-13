@@ -11,6 +11,9 @@ inputs:
   dist-folder:
     description: 'The folder containing the deployable files'
     required: true
+outputs:
+  website-url: # custom name for return parameter. define its value inside the main.js file.
+    description: 'The URL of the deployed website'
 runs:
   using: 'node16'
   main: 'main.js'
