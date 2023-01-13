@@ -1,7 +1,6 @@
-const core = require('@actions/core')
+const core = require('@actions/core');
 // const github = require('@actions/github')
 const exec = require('@actions/exec');
-const { object } = require('prop-types');
 
 function run() {
     // 1) Get inputs(bucket, bucket-region, dist-folder) from action.yml via 'core' module.
@@ -16,8 +15,8 @@ function run() {
     // // this provides some values from github context object.
 
     // 2) Upload files
-    const s3Uri = `s3://${bucket}`
-    exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`) 
+    const s3Uri = `s3://${bucket}`;
+    exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
     // 'aws' command exists inside our runner.
     // this syncs the local distFolder with the remote s3 bucket.
 
